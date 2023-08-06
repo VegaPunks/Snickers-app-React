@@ -1,15 +1,24 @@
-const Card = () => {
+import styles from "./Card.module.scss";
+
+
+const Card = ({ name, price, img, onClick}) => {
+	function showName(e) {
+		console.log(e)
+	}
+
+	let pathImage = "img/snickers/" + img + ".jpg"
+
 	return (
-		<div className="card">
-			<img src="/img/snickers/heart2.svg" alt="unlike" className="card-like" />
-			<img width={133} height={112} src="img/snickers/1.jpg" alt="snickers" />
-			<h5 className="content-title">Мужские Кроссовки Nike Blazer Mid Suede</h5>
+		<div className={styles.card}>
+			<img src="/img/snickers/heart2.svg" alt="unlike" className={styles.cardLike} />
+			<img width={133} height={112} src={pathImage} alt="snickers" />
+			<h5 className={styles.contentTitle}>{name}</h5>
 			<div className="d-flex justify-between align-center">
 				<div className="d-flex flex-column">
-					<span className="card-price">Цена:</span>
-					<b>12 999 руб.</b>
+					<span className={styles.cardPrice}>Цена:</span>
+					<b>{price} руб.</b>
 				</div>
-				<button className="button">
+				<button className={styles.button} onClick={onClick}>
 					<svg
 						width="12"
 						height="12"

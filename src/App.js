@@ -2,6 +2,13 @@ import Card from "./components/Card";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
 
+let ars = [
+	{id: 0, name: "Мужские Кроссовки Nike Blazer Mid Suede", price: 43511, img: 1},
+	{id: 1, name: "Мужские Кроссовки Nike Air Max 270", price: 12999, img: 2},
+	{id: 2, name: "Мужские Кроссовки Nike Blazer Mid Suede", price: 8499, img: 3},
+	{id: 3, name: "Кроссовки Puma X Aka Boku Future Rider", price: 8999, img: 4},
+]
+
 function App() {
 	return (
 		<div className="wrapper clear">
@@ -35,7 +42,13 @@ function App() {
 				</div>
 
 				<div className="d-flex justify-between flex-wrap">
-					<Card />
+					{
+						ars.map(elem => {
+							return (
+								<Card key={elem.id} name={elem.name} price={elem.price} img={elem.img} onClick={() => console.log(elem)} />
+							)
+						})
+					}
 				</div>
 			</div>
 		</div>
